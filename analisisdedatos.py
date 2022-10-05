@@ -3,7 +3,7 @@ import pandas as pd
 DATABASE_PATH = "club.csv"
 
 
-def calcula_prob(lista,temp1,temp2,nom1,nom2):
+def calcula_prob(lista,nom1,nom2):
     for i in lista:
         for j in range(len(lista)):
             if(lista[j][0]==nom1):
@@ -54,3 +54,5 @@ for i in lista_cb:
             temp1=lista_cb[j][1]
         elif(lista_cb[j][0]==pre2):
             temp2=lista_cb[j][1]
+
+print(calcula_prob(lista_cb,pre1,pre2))
