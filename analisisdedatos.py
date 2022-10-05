@@ -3,15 +3,7 @@ import pandas as pd
 DATABASE_PATH = "club.csv"
 
 
-def calcula_prob(lista,nom1,nom2):
-    for i in lista:
-        for j in range(len(lista)):
-            if(lista[j][0]==nom1):
-                nom1=i[j][0]
-                temp1=i[j][1]
-            elif(lista[j][0]==nom2):
-                nom2=i[j][0]
-                temp2=i[j][1]
+def calcula_prob(nom1,nom2,temp1,temp2):
     a_gana=(temp1/(temp1+temp2+2))
     b_gana=(temp2/(temp1+temp2+2))
     empate= 1-(a_gana)-(b_gana)
@@ -47,12 +39,16 @@ pre2=input('Elegir club para comparar (2): ')
 
 temp1=0
 temp2=0
+nom1=''
+nom2=''
 
-for i in lista_cb:
-    for j in range(len(lista_cb)):
-        if(lista_cb[j][0]==pre1):
-            temp1=lista_cb[j][1]
-        elif(lista_cb[j][0]==pre2):
-            temp2=lista_cb[j][1]
+for i in range(len(lista_cb)):
+    if(lista_cb[i][0]==pre1):
+        nom1=lista_cb[i][0]
+        temp1=lista_cb[i][1]
+    elif(lista_cb[i][0]==pre2):
+        nom2=lista_cb[i][0]
+        temp2=lista_cb[i][1]
 
-print(calcula_prob(lista_cb,pre1,pre2))
+
+print(calcula_prob(nom1,nom2,temp1,temp2))
