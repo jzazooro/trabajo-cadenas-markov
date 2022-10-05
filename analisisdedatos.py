@@ -1,4 +1,7 @@
 import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from markovchain import MarkovChain
 
 DATABASE_PATH = "club.csv"
 
@@ -67,3 +70,12 @@ print(calcula_prob(nom1,nom2,temp1,temp2))
 gana=calcula_1(temp1,temp2)
 pierde=calcula_2(temp1,temp2)
 empata=calcula_emp(gana,pierde)
+
+
+P = np.array([
+    [0.8, 0.1, 0.1],
+    [0.1, 0.7, 0.2],
+    [0.1, 0.7, 0.2],
+])
+mc = MarkovChain(P, ['A', 'B', 'C'])
+mc.draw()
