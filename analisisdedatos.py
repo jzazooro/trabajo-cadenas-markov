@@ -45,3 +45,5 @@ for i in lista_cb:
     for j in range(len(lista_cb)):
         if(lista_cb[j][0]==pre1):
             temp1=lista_cb[j][1]
+        elif(lista_cb[j][0]==pre2):
+            temp2=lista_cb[j][1]
