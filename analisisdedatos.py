@@ -3,12 +3,19 @@ import pandas as pd
 DATABASE_PATH = "club.csv"
 
 
-def calcula_prob(a,b):
-    a=a[1]
-    b=b[1]
-    a_gana=float(a/(a+b+2))
-    b_gana=float(b/(a+b+2))
+def calcula_prob(lista,temp1,temp2,nom1,nom2):
+    for i in lista:
+        for j in range(len(lista)):
+            if(lista[j][0]==nom1):
+                nom1=i[j][0]
+                temp1=i[j][1]
+            elif(lista[j][0]==nom2):
+                nom2=i[j][0]
+                temp2=i[j][1]
+    a_gana=(temp1/(temp1+temp2+2))
+    b_gana=(temp2/(temp1+temp2+2))
     empate= 1-(a_gana)-(b_gana)
+    return f'La probabilidad de que {nom1} equipo gane al {nom2} es del {a_gana*100}%\nLa probabilidad de que {nom2} equipo gane al {nom1} es del {b_gana*100}%\nLa probabilidad de empate es del {empate*100}%'
     
 df = pd.read_csv(DATABASE_PATH)
 price=df['Market Value Of Club In Millions(£)'].tolist()
