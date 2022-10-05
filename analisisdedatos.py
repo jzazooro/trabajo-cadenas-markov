@@ -20,7 +20,6 @@ div=[]
 for i in range(len(price)):
     x=price[i]/players[i]
     div.append(x)
-print(div)
 
 lista_cb=[]
 
@@ -28,4 +27,10 @@ for i in range(len(price)):
     lista_cb.append([clubes[i],div[i]])
 print(lista_cb)
 
-print(lista_cb[0][1])
+for i in range(lista_cb):
+    print(f'Club: {lista_cb[i][0]}; Precio/Edad: {lista_cb[i][1]}')
+
+#lista_cb[nombres][($)/media_edad]
+
+print(lista_cb[1][0])
+print(type(lista_cb[1][1]))
