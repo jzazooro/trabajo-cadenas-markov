@@ -10,7 +10,8 @@ class DataBase:
     df = pd.read_csv(DATABASE_PATH)
     print(df)
     price=[]
-    price=df['Market Value Of Club In Millions(£)']
+    price=df['Market Value Of Club In Millions(£)'].tolist()
     print(price)
-    players=df['Market Value Of Top 18 Players In Millions(£)']
+    players=df['Average Age Of Players'].tolist()
+    print(players)
 
